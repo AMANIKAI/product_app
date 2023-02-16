@@ -5,6 +5,7 @@ import AboutUs from './AboutUs';
 import Footer from './Footer';
 import ProductList from './ProductList';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProductForm from './ProductForm';
 
 
 
@@ -16,6 +17,8 @@ function App() {
        <ProductList />
        <AboutUs />
        <Footer />
+       <ProductForm />
+
      </div>
    </React.Fragment>   
  )
