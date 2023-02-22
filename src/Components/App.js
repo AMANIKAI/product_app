@@ -3,9 +3,10 @@ import '../styles/App.css';
 import Header from './Header';
 import AboutUs from './AboutUs';
 import Footer from './Footer';
-import ProductList from './ProductList';
+// import ProductList from './ProductList';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ProductForm from './ProductForm';
+// import ProductForm from './NewProductForm';
+import ProductControl from './ProductControl';
 
 
 
@@ -14,11 +15,9 @@ function App() {
    <React.Fragment>
      <div className="container-fluid">
        <Header />
-       <ProductList />
+       <ProductControl/>       
        <AboutUs />
        <Footer />
-       <ProductForm />
-
      </div>
    </React.Fragment>   
  )

@@ -1,15 +1,41 @@
-
 import React, { Component } from 'react';
-import axios from 'axios';
+import ProductList from './ProductList';
+import NewProductForm from './NewProductForm';
+import AddProduct from './AddProduct';
 
 
-   // Method to handle adding a new product
-   handleAddingNewProduct = (newProduct) =>{
+class ProductControl extends Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            productFormVisible: false
+        }
+    }
+ 
+    handleClick = ()=>{
+        this.setState((prevState)=>({
+            productFormVisible: !prevState.productFormVisible
+        }))
+    }
 
-       axios.post('http://localhost:5000/products', newProduct)
-           .then(res => console.log(res.data))
-           .catch(err => console.log(err))
-       this.setState({
-           productFormVisible: false
-       })
-   };
+    render() {
+        let currentVisibleState = null;
+        let buttonText = null //new code
+        if (this.state.productFormVisible){
+            currentVisibleState = <NewProductForm />
+            buttonText = 'Go back to Product List' //new code
+        }else{
+            currentVisibleState = <ProductList />
+            buttonText = 'Add A Product' //new code
+        }
+        return (
+            <React.Fragment>
+                <AddProduct/>
+                <button onClick = {this.handleClick}>{buttonText} </button>
+                {currentVisibleState}
+            </React.Fragment>
+        )
+    }
+}
+
+export default ProductControl;
